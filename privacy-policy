@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - PerfectlySplendid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-50: #FFF5F5;
+            --primary-100: #FFE8E8;
+            --primary-200: #FFCFCF;
+            --primary-300: #FFB3B3;
+            --primary-400: #FF8A8A;
+            --primary-500: #F87171;
+            --primary-600: #EF5350;
+            --secondary-50: #FDF2F8;
+            --secondary-100: #FCE7F3;
+            --secondary-200: #FBCFE8;
+            --secondary-500: #EC4899;
+            --text-primary: #2D2D2D;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --white: #FFFFFF;
+            --neutral-100: #F5F5F5;
+            --neutral-200: #EEEEEE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--secondary-50) 50%, var(--primary-50) 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(248, 113, 113, 0.25);
+        }
+
+        .logo svg {
+            width: 48px;
+            height: 48px;
+            fill: var(--white);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: var(--white);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--primary-500);
+            font-weight: 500;
+            box-shadow: 0 2px 12px rgba(248, 113, 113, 0.1);
+        }
+
+        /* Content Card */
+        .content-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (max-width: 640px) {
+            .content-card {
+                padding: 32px 24px;
+                border-radius: 20px;
+            }
+        }
+
+        /* Section Headers */
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-100);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h2 .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        h2 .icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-500);
+        }
+
+        h3 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 24px 0 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        ul {
+            margin: 12px 0 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--primary-400), var(--secondary-500));
+            border-radius: 50%;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 4px solid var(--primary-500);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-600);
+        }
+
+        /* Links */
+        a {
+            color: var(--primary-500);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-600);
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 32px;
+        }
+
+        .contact-card h2 {
+            color: var(--white);
+            border-bottom: none;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-500);
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-email:hover {
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        footer p {
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .footer-logo svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-500);
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .decoration-1 {
+            top: 10%;
+            right: 5%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .decoration-2 {
+            bottom: 20%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--secondary-200) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C13.5 2 15 3 15 5C15 7 13.5 8 12 8C10.5 8 9 7 9 5C9 3 10.5 2 12 2ZM12 10C14.5 10 16.5 8.5 17 6C19 6.5 21 8.5 21 11C21 13.5 19 15.5 17 16C16.5 18 14.5 20 12 20C9.5 20 7.5 18 7 16C5 15.5 3 13.5 3 11C3 8.5 5 6.5 7 6C7.5 8.5 9.5 10 12 10ZM12 18C13.5 18 15 16.5 15 15C15 13.5 13.5 12 12 12C10.5 12 9 13.5 9 15C9 16.5 10.5 18 12 18Z"/>
+                </svg>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Your privacy matters to us</p>
+            <span class="last-updated">Last Updated: December 29, 2024</span>
+        </header>
+
+        <div class="content-card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </span>
+                Introduction
+            </h2>
+            <p>PerfectlySplendid ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our mobile application.</p>
+            <p>We believe your journey to quit smoking should be personal and private. That's why we've built PerfectlySplendid with privacy at its core.</p>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                </span>
+                Information We Collect
+            </h2>
+            
+            <h3>Information You Provide</h3>
+            <ul>
+                <li><strong>Account Information:</strong> Email address and name (if you create an account)</li>
+                <li><strong>Profile Data:</strong> Quit date, smoking habits (cigarettes per day, pack price), and personal motivation</li>
+                <li><strong>Journal Entries:</strong> Personal notes you choose to save</li>
+                <li><strong>Craving Logs:</strong> Information about cravings you track</li>
+            </ul>
+
+            <h3>Information Collected Automatically</h3>
+            <ul>
+                <li><strong>Usage Data:</strong> App interactions, features used, and time spent in the app</li>
+                <li><strong>Device Information:</strong> Device type, operating system version, and app version</li>
+            </ul>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </span>
+                How We Use Your Information
+            </h2>
+            <p>We use your information to:</p>
+            <ul>
+                <li>Track and display your smoke-free progress</li>
+                <li>Calculate savings and health milestones</li>
+                <li>Sync your data across devices (if you create an account)</li>
+                <li>Improve our app and user experience</li>
+                <li>Send optional motivational notifications (with your permission)</li>
+            </ul>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                </span>
+                Data Storage & Security
+            </h2>
+            <ul>
+                <li><strong>Local Storage:</strong> Your data is primarily stored locally on your device</li>
+                <li><strong>Cloud Backup:</strong> If you create an account, data is securely stored on Supabase servers with encryption</li>
+                <li><strong>Encryption:</strong> All data transmitted to our servers uses industry-standard SSL/TLS encryption</li>
+                <li><strong>Access Control:</strong> Only you can access your personal data through your account</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>We do NOT:</strong> Sell your personal information, share your data with advertisers, or use your data for targeted advertising. Your quit journey is yours alone.</p>
+            </div>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </span>
+                Your Rights
+            </h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> View all data we have about you</li>
+                <li><strong>Export:</strong> Download your data at any time</li>
+                <li><strong>Delete:</strong> Permanently delete your account and all associated data</li>
+                <li><strong>Opt-out:</strong> Disable notifications or use the app without an account</li>
+            </ul>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </span>
+                Data Retention
+            </h2>
+            <ul>
+                <li><strong>With Account:</strong> Data is retained until you delete your account</li>
+                <li><strong>Without Account:</strong> Data is stored locally and deleted when you uninstall the app</li>
+            </ul>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                </span>
+                Third-Party Services
+            </h2>
+            <p>We use the following third-party services:</p>
+            <ul>
+                <li><strong>Supabase:</strong> For secure authentication and data storage (<a href="https://supabase.com/privacy" target="_blank">Privacy Policy</a>)</li>
+                <li><strong>Expo:</strong> For app distribution and updates (<a href="https://expo.dev/privacy" target="_blank">Privacy Policy</a>)</li>
+            </ul>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                </span>
+                Changes to This Policy
+            </h2>
+            <p>We may update this Privacy Policy periodically. We will notify you of significant changes through the app or via email. Continued use of PerfectlySplendid after changes constitutes acceptance of the updated policy.</p>
+
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z"/></svg>
+                </span>
+                Children's Privacy
+            </h2>
+            <p>PerfectlySplendid is not intended for users under 18 years of age. We do not knowingly collect information from children.</p>
+        </div>
+
+        <div class="contact-card">
+            <h2>Questions?</h2>
+            <p>If you have any questions about this Privacy Policy or your data, we're here to help.</p>
+            <a href="mailto:kyle@scentevent.ca class="contact-email">kyle@scentevent.ca</a>
+        </div>
+
+        <footer>
+            <div class="footer-logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C13.5 2 15 3 15 5C15 7 13.5 8 12 8C10.5 8 9 7 9 5C9 3 10.5 2 12 2ZM12 10C14.5 10 16.5 8.5 17 6C19 6.5 21 8.5 21 11C21 13.5 19 15.5 17 16C16.5 18 14.5 20 12 20C9.5 20 7.5 18 7 16C5 15.5 3 13.5 3 11C3 8.5 5 6.5 7 6C7.5 8.5 9.5 10 12 10ZM12 18C13.5 18 15 16.5 15 15C15 13.5 13.5 12 12 12C10.5 12 9 13.5 9 15C9 16.5 10.5 18 12 18Z"/>
+                </svg>
+                PerfectlySplendid
+            </div>
+            <p>By using PerfectlySplendid, you agree to the terms of this Privacy Policy.</p>
+            <p>&copy; 2025 PerfectlySplendid. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
