@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Blossom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --primary-50: #FFF5F5;
+            --primary-100: #FFE8E8;
+            --primary-200: #FFCFCF;
+            --primary-300: #FFB3B3;
+            --primary-400: #FF8A8A;
+            --primary-500: #F87171;
+            --primary-600: #EF5350;
+            --secondary-50: #FDF2F8;
+            --secondary-100: #FCE7F3;
+            --secondary-200: #FBCFE8;
+            --secondary-500: #EC4899;
+            --text-primary: #2D2D2D;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --white: #FFFFFF;
+            --neutral-100: #F5F5F5;
+            --neutral-200: #EEEEEE;
+            --success-500: #4CAF50;
+            --error-500: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--secondary-50) 50%, var(--primary-50) 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(248, 113, 113, 0.25);
+        }
+
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--white);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Card */
+        .card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 28px;
+            border-left: 4px solid var(--primary-500);
+        }
+
+        .warning-box p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .warning-box strong {
+            color: var(--primary-600);
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--neutral-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-primary);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background: var(--white);
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.1);
+        }
+
+        input[type="email"]::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--primary-500);
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(248, 113, 113, 0.3);
+        }
+
+        .btn-danger:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(248, 113, 113, 0.4);
+        }
+
+        .btn-danger:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Messages */
+        .message {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .message.success {
+            background: #E8F5E9;
+            color: #2E7D32;
+            display: block;
+        }
+
+        .message.error {
+            background: #FFEBEE;
+            color: #C62828;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--primary-500);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 0.8s ease-in-out infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .decoration-1 {
+            top: 10%;
+            right: 5%;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, var(--primary-200) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .decoration-2 {
+            bottom: 15%;
+            left: 5%;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, var(--secondary-200) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 540px) {
+            .card {
+                padding: 28px 24px;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .decoration {
+                display: none;
+            }
+        }
+
+        /* Success state */
+        .success-state {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--success-500), #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--white);
+        }
+
+        .success-state h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .success-state p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C13.5 2 15 3 15 5C15 7 13.5 8 12 8C10.5 8 9 7 9 5C9 3 10.5 2 12 2ZM12 10C14.5 10 16.5 8.5 17 6C19 6.5 21 8.5 21 11C21 13.5 19 15.5 17 16C16.5 18 14.5 20 12 20C9.5 20 7.5 18 7 16C5 15.5 3 13.5 3 11C3 8.5 5 6.5 7 6C7.5 8.5 9.5 10 12 10ZM12 18C13.5 18 15 16.5 15 15C15 13.5 13.5 12 12 12C10.5 12 9 13.5 9 15C9 16.5 10.5 18 12 18Z"/>
+                </svg>
+            </div>
+            <h1>Delete Account</h1>
+            <p class="subtitle">We're sorry to see you go</p>
+        </header>
+
+        <div class="card">
+            <!-- Form State -->
+            <div id="formState">
+                <div class="warning-box">
+                    <p><strong>Warning:</strong> This action is permanent. All your data including your profile, quit date, journal entries, and progress will be deleted within 24 hours.</p>
+                </div>
+
+                <form id="deleteForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your account email"
+                            required
+                        >
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="confirm" name="confirm" required>
+                        <label for="confirm">I understand that this action is irreversible and all my data will be permanently deleted.</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger" id="submitBtn">
+                        Request Account Deletion
+                    </button>
+
+                    <div id="message" class="message"></div>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div id="successState" style="display: none;">
+                <div class="success-state">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <h2>Request Received</h2>
+                    <p>Your account deletion request has been submitted. Your account and all associated data will be deleted within 24 hours.</p>
+                    <p style="margin-top: 16px; font-size: 0.9rem;">You will receive a confirmation email once the deletion is complete.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Changed your mind? <a href="kyle@scentevent.ca">Contact support</a></p>
+            <p style="margin-top: 8px;"><a href="privacy-policy.html">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Supabase client
+        // Replace these with your actual Supabase credentials
+        const SUPABASE_URL = 'https://tzzgdjixzwgcdfcucnye.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_wLdekEIpj6CcW3kiMj4CbQ_BMpH7IdH';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        const form = document.getElementById('deleteForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageEl = document.getElementById('message');
+        const formState = document.getElementById('formState');
+        const successState = document.getElementById('successState');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const confirmed = document.getElementById('confirm').checked;
+
+            if (!email || !confirmed) {
+                showMessage('Please fill in all fields and confirm the deletion.', 'error');
+                return;
+            }
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"></span>Processing...';
+            messageEl.className = 'message';
+            messageEl.style.display = 'none';
+
+            try {
+                // Insert deletion request into Supabase
+                const { data, error } = await supabase
+                    .from('deletion_requests')
+                    .insert([
+                        { 
+                            email: email,
+                            status: 'pending',
+                            requested_at: new Date().toISOString()
+                        }
+                    ]);
+
+                if (error) {
+                    throw error;
+                }
+
+                // Show success state
+                formState.style.display = 'none';
+                successState.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Something went wrong. Please try again or contact support.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Request Account Deletion';
+            }
+        });
+
+        function showMessage(text, type) {
+            messageEl.textContent = text;
+            messageEl.className = `message ${type}`;
+        }
+    </script>
+</body>
+</html>
